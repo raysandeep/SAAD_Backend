@@ -11,12 +11,12 @@ from .serializers import (
     OperationSerializer
 )
 # Create your views here.
-class BannerView(APIView):
+class OperationView(APIView):
     
     def get(self, request):
         print("operation route hit")
         print("operation route get view")
-        queryset = OperationSerializer.objects.all()
+        queryset = operation.objects.all()
         serializer = OperationSerializer(queryset, many=True)
         Response.status_code = 200
         return Response({"status": "success", "data": serializer.data})
